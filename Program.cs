@@ -10,7 +10,8 @@ namespace Practice
             {
                 Problem1.PalindromeDescendantTest,
                 Problem2.TranslateEnglishToPigLatinTest,
-                Problem3.FindPrimeNumberTest
+                Problem3.FindPrimeNumberTest,
+                Problem4.AllergiesTest,
             };
 
             int selection = -1;
@@ -19,6 +20,7 @@ namespace Practice
             {
                 try
                 {
+                    // Run the test specified by the user on the command line
                     Console.Write("Enter the index of the practice problem to run: ");
 
                     int.TryParse(Console.ReadLine(), out selection);
@@ -26,7 +28,10 @@ namespace Practice
                     if (selection == 0)
                         break;
 
-                    functions.ElementAt(selection-1)();
+                    if (selection <= functions.Count)
+                    {
+                        functions.ElementAt(selection - 1)();
+                    }
 
                     Console.WriteLine();
                 }

@@ -26,20 +26,20 @@
             bool isPrime = false;
             int primeCount = 0;
             int curNum = 2;
-            
+
             // Find the nth prime number
-            while(true)
+            while (true)
             {
                 // Determine if a number is prime
                 isPrime = IsNumberPrime(curNum);
 
-                if(isPrime)
+                if (isPrime)
                 {
                     Console.WriteLine($"Found prime number #{primeCount} and it's {curNum}");
                     primeCount++;
                 }
 
-                if(primeCount == nthprime)
+                if (primeCount == nthprime)
                 {
                     break;
                 }
@@ -57,7 +57,7 @@
             int curModulus = 2;
 
             // Only need to check the modulo if it's half the prime candidate
-            while (curModulus <= Math.Floor((float)num/2))
+            while (curModulus <= Math.Floor((float)num / 2))
             {
                 if (num % curModulus == 0)
                 {
