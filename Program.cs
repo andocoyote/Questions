@@ -1,5 +1,4 @@
 ﻿using Practice.Problems;
-using System.Runtime.CompilerServices;
 
 namespace Practice
 {
