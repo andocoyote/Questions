@@ -2,13 +2,13 @@
 {
     internal static class Problem1
     {
+        private static List<int> ints = new List<int>()
+        {
+            11211230, 13001120, 23336014, 11
+        };
+
         public static void PalindromeDescendantTest()
         {
-            List<int> ints = new List<int>()
-            {
-                11211230, 13001120, 23336014, 11
-            };
-
             foreach (int i in ints)
             {
                 PalindromeDescendant(i);

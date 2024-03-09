@@ -12,7 +12,8 @@ namespace Practice
                 Problem2.TranslateEnglishToPigLatinTest,
                 Problem3.FindPrimeNumberTest,
                 Problem4.AllergiesTest,
-                Problem5.ThreeSumProblemTest
+                Problem5.ThreeSumProblemTest,
+                Problem6.PalindromeTest
             };
 
             int selection = -1;
