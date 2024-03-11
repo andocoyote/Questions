@@ -1,0 +1,18 @@
+Problem: File Analyzer
+You are tasked with creating a file analyzer program in C#. The program should read a text file, analyze its contents, and provide relevant information. Here are the specific requirements:
+
+File Input: Prompt the user to enter the path of a text file.
+
+Read File: Read the contents of the text file.
+
+Analysis:
+
+Count and display the total number of words in the file.
+Count and display the total number of lines in the file.
+Identify and display the longest word in the file.
+Identify and display the frequency of each word in the file.
+Output: Present the analysis results in a clear and well-formatted manner.
+
+Error Handling: Handle cases where the file does not exist or there are issues reading it. Provide appropriate error messages.
+
+Feel free to add any additional features or enhancements you think would be valuable for this file analyzer. The goal is to demonstrate proficiency in file handling, string manipulation, and general problem-solving in C#.

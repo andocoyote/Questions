@@ -13,7 +13,8 @@ namespace Practice
                 Problem3.FindPrimeNumberTest,
                 Problem4.AllergiesTest,
                 Problem5.ThreeSumProblemTest,
-                Problem6.PalindromeTest
+                Problem6.PalindromeTest,
+                Problem7.FileAnalyzerTest
             };
 
             int selection = -1;
