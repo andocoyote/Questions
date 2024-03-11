@@ -16,7 +16,7 @@
             string line = string.Empty;
             string longestWord = string.Empty;
             List<string> tokens = null;
-            SortedDictionary<string, int> wordFrequencyDict = new SortedDictionary<string, int>();
+            SortedDictionary<string, int> wordFrequencyDict = new();
             int wordCount = 0;
             int lineCount = 0;
             char[] punctuation = {'.', ',', '?', '!', '-', ':', ' '};
@@ -63,14 +63,18 @@
                 } // End of while(...)
             } // End of using(...)
 
+            List<string> longestWords = tokens.Where(word => word.Length == longestWord.Length).ToList();
+
             Console.WriteLine($"Word count: {wordCount}");
             Console.WriteLine($"Line count: {lineCount}");
-            Console.WriteLine($"Longest word: {longestWord}");
+
+            Console.WriteLine($"Longest word(s): {longestWord}");
+            longestWords.ForEach(word => Console.WriteLine($"\t{word}"));
 
             Console.WriteLine("Frequency per word:");
             foreach (string word in wordFrequencyDict.Keys)
             {
-                Console.WriteLine($"{word}:{wordFrequencyDict[word]}");
+                Console.WriteLine($"\t{word}:{wordFrequencyDict[word]}");
             }
         }
     }
