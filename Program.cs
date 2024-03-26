@@ -14,7 +14,8 @@ namespace Practice
                 Problem4.AllergiesTest,
                 Problem5.ThreeSumProblemTest,
                 Problem6.PalindromeTest,
-                Problem7.FileAnalyzerTest
+                Problem7.FileAnalyzerTest,
+                Problem8.DatabaseConnectionPoolingTest
             };
 
             int selection = -1;

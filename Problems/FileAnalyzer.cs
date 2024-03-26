@@ -13,15 +13,15 @@
         */
         public static void FileAnalyzerTest()
         {
-            string line = string.Empty;
-            string longestWord = string.Empty;
-            List<string> tokens = null;
+            string? line = string.Empty;
+            string? longestWord = string.Empty;
+            List<string>? tokens = null;
             SortedDictionary<string, int> wordFrequencyDict = new();
             int wordCount = 0;
             int lineCount = 0;
             char[] punctuation = {'.', ',', '?', '!', '-', ':', ' '};
 
-            using (StreamReader reader = new StreamReader(_filename))
+            using (StreamReader? reader = new StreamReader(_filename))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -42,7 +42,7 @@
                     // Count the total number of lines
                     lineCount++;
 
-                    foreach(string word in tokens)
+                    foreach(string word in tokens ?? Enumerable.Empty<string>())
                     {
                         // Set the longest word so far
                         if (longestWord.Length < word.Length)
@@ -63,13 +63,13 @@
                 } // End of while(...)
             } // End of using(...)
 
-            List<string> longestWords = tokens.Where(word => word.Length == longestWord.Length).ToList();
+            List<string>? longestWords = tokens?.Where(word => word.Length == longestWord.Length).ToList();
 
             Console.WriteLine($"Word count: {wordCount}");
             Console.WriteLine($"Line count: {lineCount}");
 
             Console.WriteLine($"Longest word(s): {longestWord}");
-            longestWords.ForEach(word => Console.WriteLine($"\t{word}"));
+            longestWords?.ForEach(word => Console.WriteLine($"\t{word}"));
 
             Console.WriteLine("Frequency per word:");
             foreach (string word in wordFrequencyDict.Keys)
