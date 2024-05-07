@@ -10,82 +10,84 @@ namespace Practice.Problems
     {
         public static void BinarySearchTreeTest()
         {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Insert(5);
+            tree.Insert(3);
+            tree.Insert(7);
+            tree.Insert(2);
+            tree.Insert(4);
+            tree.Insert(6);
+            tree.Insert(8);
 
-        }
+            Console.WriteLine("Breadth-first traversal:");
+            tree.PrintBreadthFirst();
 
-        public static void BinarySearchTree()
-        {
-        
+            Console.WriteLine("Depth-first traversal:");
+            tree.PrintDepthFirst();
         }
     }
 
-    public class BinarySearchTree
+    public class BinarySearchTree<T> where T : IComparable<T>
     {
         internal class Node
         {
-            public int Value { get; set; }
+            public T Data { get; set; }
             public Node? Left { get; set; }
             public Node? Right { get; set; }
 
-            public Node(int value)
+            public Node(T data)
             {
-                Value = value;
+                Data = data;
             }
         }
 
         private Node? root;
 
-        public void Insert(int value)
+        public void Insert(T data)
         {
-            root = InsertRecursive(root, value);
+            root = InsertRecursive(root, data);
         }
 
-        private Node InsertRecursive(Node? node, int value)
+        private Node InsertRecursive(Node? node, T data)
         {
             if (node == null)
             {
-                // If the tree is empty, create a new node
-                return new Node(value);
+                return new Node(data);
             }
 
-            // Insert value into the appropriate subtree
-            if (value < node.Value)
+            if (data.CompareTo(node.Data) < 0)
             {
-                // Insert into the left subtree
-                node.Left = InsertRecursive(node.Left, value);
+                node.Left = InsertRecursive(node.Left, data);
             }
-            else if (value > node.Value)
+            else if (data.CompareTo(node.Data) > 0)
             {
-                // Insert into the right subtree
-                node.Right = InsertRecursive(node.Right, value);
+                node.Right = InsertRecursive(node.Right, data);
             }
-
-            // If the value already exists, do nothing
 
             return node;
         }
 
-        public void Delete(int value)
+        public void Delete(T data)
         {
-            root = DeleteRecursive(root, value);
+            root = DeleteRecursive(root, data);
         }
 
-        private Node? DeleteRecursive(Node? node, int value)
+        private Node? DeleteRecursive(Node? node, T data)
         {
             if (node == null)
             {
                 return null; // Node not found
             }
 
-            if (value < node.Value)
+            if (data.CompareTo(node.Data) < 0)
             {
                 // Value to delete is in the left subtree
-                node.Left = DeleteRecursive(node.Left, value);
+                node.Left = DeleteRecursive(node.Left, data);
             }
-            else if (value > node.Value)
+            else if (data.CompareTo(node.Data) > 0)
             {
                 // Value to delete is in the right subtree
-                node.Right = DeleteRecursive(node.Right, value);
+                node.Right = DeleteRecursive(node.Right, data);
             }
             else
             {
@@ -104,25 +106,73 @@ namespace Practice.Problems
                 {
                     // Node has two children
                     // Find the minimum value in the right subtree (or maximum value in the left subtree)
-                    node.Value = FindMinValue(node.Right);
+                    node.Data = FindMinValue(node.Right);
 
                     // Delete the node with the minimum value in the right subtree
-                    node.Right = DeleteRecursive(node.Right, node.Value);
+                    node.Right = DeleteRecursive(node.Right, node.Data);
                 }
             }
 
             return node;
         }
 
-        private int FindMinValue(Node node)
+        private T FindMinValue(Node node)
         {
-            int minValue = node.Value;
+            T minValue = node.Data;
             while (node.Left != null)
             {
-                minValue = node.Left.Value;
+                minValue = node.Left.Data;
                 node = node.Left;
             }
             return minValue;
+        }
+
+        public void PrintBreadthFirst()
+        {
+            if (root == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return;
+            }
+
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                Node current = queue.Dequeue();
+                Console.Write(current.Data + " ");
+
+                if (current.Left != null)
+                {
+                    queue.Enqueue(current.Left);
+                }
+
+                if (current.Right != null)
+                {
+                    queue.Enqueue(current.Right);
+                }
+            }
+
+            Console.WriteLine();
+        }
+
+        public void PrintDepthFirst()
+        {
+            PrintDepthFirstRecursive(root);
+            Console.WriteLine();
+        }
+
+        private void PrintDepthFirstRecursive(Node? node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            PrintDepthFirstRecursive(node.Left);
+            Console.Write(node.Data + " ");
+            PrintDepthFirstRecursive(node.Right);
         }
     }
 

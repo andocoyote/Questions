@@ -19,7 +19,8 @@ namespace Practice
                 Problem9.MergeIntervalsTest,
                 Problem10.CoinChangeTest,
                 Problem11.FibonacciTest,
-                Problem12.FactorialTest
+                Problem12.FactorialTest,
+                Problem13.BinarySearchTreeTest
             };
 
             int selection = -1;
