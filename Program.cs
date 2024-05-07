@@ -15,7 +15,11 @@ namespace Practice
                 Problem5.ThreeSumProblemTest,
                 Problem6.PalindromeTest,
                 Problem7.FileAnalyzerTest,
-                Problem8.DatabaseConnectionPoolingTest
+                Problem8.DatabaseConnectionPoolingTest,
+                Problem9.MergeIntervalsTest,
+                Problem10.CoinChangeTest,
+                Problem11.FibonacciTest,
+                Problem12.FactorialTest
             };
 
             int selection = -1;
